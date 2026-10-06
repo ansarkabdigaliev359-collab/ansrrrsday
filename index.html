@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#111111">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Мой день</title>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ШАПКА -->
+    <header class="top">
+        <div>
+            <div class="eyebrow">МОЙ ПЛАН</div>
+            <h1 id="pageTitle">Мой день</h1>
+        </div>
+
+        <button class="today-button" id="todayBtn">
+            Сегодня
+        </button>
+    </header>
+
+
+    <!-- НАВИГАЦИЯ -->
+    <nav class="tabs">
+
+        <button class="tab active" data-page="today">
+            🏠<span>Сегодня</span>
+        </button>
+
+        <button class="tab" data-page="plan">
+            📋<span>Мой план</span>
+        </button>
+
+        <button class="tab" data-page="calendar">
+            📅<span>Календарь</span>
+        </button>
+
+    </nav>
+
+
+    <!-- ========================= -->
+    <!-- СТРАНИЦА СЕГОДНЯ -->
+    <!-- ========================= -->
+
+    <section id="todayPage" class="page active-page">
+
+        <div class="date-navigation">
+
+            <button id="prevDay" class="round-button">‹</button>
+
+            <div class="date-center">
+                <strong id="dayName"></strong>
+                <span id="fullDate"></span>
+            </div>
+
+            <button id="nextDay" class="round-button">›</button>
+
+        </div>
+
+
+        <section class="progress-card">
+
+            <div class="progress-header">
+                <div>
+                    <span class="card-label">Прогресс дня</span>
+                    <strong id="progressText">0%</strong>
+                </div>
+            </div>
+
+            <div class="progress">
+                <div id="progressBar"></div>
+            </div>
+
+            <p id="completedText">0 из 0 выполнено</p>
+
+        </section>
+
+
+        <div class="section-title">
+            <h2>Сегодня</h2>
+            <span id="taskCount"></span>
+        </div>
+
+        <main id="tasks"></main>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- ПОЛНЫЙ ПЛАН -->
+    <!-- ========================= -->
+
+    <section id="planPage" class="page">
+
+        <div class="intro-card">
+
+            <div class="intro-icon">🌅</div>
+
+            <div>
+                <h2>Мой недельный план</h2>
+                <p>
+                    Подъём → учёба → университет → ДЗ → TikTok → прогулка → сон
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- ОБЩИЕ ПРАВИЛА -->
+
+        <div class="plan-block">
+
+            <div class="plan-heading">
+                <span>🌅</span>
+                <h2>Общие правила</h2>
+            </div>
+
+            <div class="rules">
+
+                <div class="rule">
+                    <strong>Подъём</strong>
+                    <span>05:00</span>
+                </div>
+
+                <div class="rule">
+                    <strong>Сон</strong>
+                    <span>22:00</span>
+                </div>
+
+                <div class="rule">
+                    <strong>Утренняя пробежка</strong>
+                    <span>3–4 раза в неделю</span>
+                </div>
+
+                <div class="rule">
+                    <strong>В остальные дни</strong>
+                    <span>Лёгкая разминка / прогулка</span>
+                </div>
+
+                <div class="rule">
+                    <strong>ДЗ</strong>
+                    <span>В первую очередь после отдыха</span>
+                </div>
+
+                <div class="rule">
+                    <strong>TikTok</strong>
+                    <span>После учёбы</span>
+                </div>
+
+                <div class="rule">
+                    <strong>Вечерняя прогулка</strong>
+                    <span>30–45 минут</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ДНИ -->
+
+        <div id="fullPlan"></div>
+
+
+        <!-- СИСТЕМА -->
+
+        <div class="plan-block system-block">
+
+            <div class="plan-heading">
+                <span>🎯</span>
+                <h2>Твоя система</h2>
+            </div>
+
+            <div class="system-card">
+                <strong>🌅 УТРО</strong>
+                <p>
+                    🏃 Пробежка → 🚿 душ → 🍳 завтрак →
+                    📖 повторение → 🎓 подготовка → университет
+                </p>
+            </div>
+
+            <div class="system-card">
+                <strong>🏠 ПОСЛЕ УНИВЕРА</strong>
+                <p>
+                    🍽️ Поесть → 😌 отдохнуть → 📝 ДЗ →
+                    📚 подготовка → 🎬 TikTok
+                </p>
+            </div>
+
+            <div class="system-card">
+                <strong>🌙 ВЕЧЕР</strong>
+                <p>
+                    🍽️ ужин → 🚶 прогулка → 🎒 подготовить вещи →
+                    📱 свободное время → 😴 сон
+                </p>
+            </div>
+
+            <div class="important-card">
+                <strong>⭐ Главное</strong>
+                <p>
+                    Если ДЗ много — сокращай TikTok, а не сон.
+                    Если устал — пробежку можно заменить лёгкой прогулкой.
+                    Если всё сделал раньше — появляется свободное время.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================= -->
+    <!-- КАЛЕНДАРЬ -->
+    <!-- ========================= -->
+
+    <section id="calendarPage" class="page">
+
+        <div class="calendar-top">
+
+            <div>
+                <div class="eyebrow">ИСТОРИЯ</div>
+                <h2>Календарь</h2>
+            </div>
+
+            <button id="calendarToday" class="today-button">
+                Сегодня
+            </button>
+
+        </div>
+
+
+        <div class="calendar-card">
+
+            <div class="calendar-header">
+
+                <button id="prevMonth" class="round-button">
+                    ‹
+                </button>
+
+                <strong id="monthTitle"></strong>
+
+                <button id="nextMonth" class="round-button">
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="weekdays">
+
+                <span>Пн</span>
+                <span>Вт</span>
+                <span>Ср</span>
+                <span>Чт</span>
+                <span>Пт</span>
+                <span>Сб</span>
+                <span>Вс</span>
+
+            </div>
+
+
+            <div id="calendar" class="calendar"></div>
+
+
+            <div class="legend">
+
+                <div>
+                    <i class="legend-dot"></i>
+                    Есть выполненные задачи
+                </div>
+
+                <div>
+                    <i class="legend-full"></i>
+                    День полностью выполнен
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+
+<script src="app.js"></script>
+
+</body>
+</html>

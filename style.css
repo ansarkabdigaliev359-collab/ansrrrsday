@@ -1,0 +1,617 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #f4f4f5;
+    --card: #ffffff;
+    --text: #111111;
+    --secondary: #777777;
+    --line: #e7e7e7;
+    --accent: #111111;
+}
+
+body {
+    margin: 0;
+    background: var(--background);
+    color: var(--text);
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "SF Pro Display",
+        "Segoe UI",
+        sans-serif;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+.app {
+    width: 100%;
+    max-width: 680px;
+    margin: auto;
+    padding:
+        max(20px, env(safe-area-inset-top))
+        18px
+        calc(50px + env(safe-area-inset-bottom));
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.eyebrow {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+h1 {
+    margin: 5px 0 0;
+    font-size: 30px;
+    letter-spacing: -0.7px;
+}
+
+.today-button {
+    background: var(--text);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 13px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   TABS
+========================= */
+
+.tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #e9e9ea;
+    padding: 4px;
+    border-radius: 16px;
+    margin-bottom: 22px;
+}
+
+.tab {
+    background: transparent;
+    border-radius: 13px;
+    padding: 10px 4px;
+    font-size: 13px;
+    color: #777;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.tab.active {
+    background: white;
+    color: #111;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+
+/* =========================
+   PAGES
+========================= */
+
+.page {
+    display: none;
+}
+
+.active-page {
+    display: block;
+}
+
+
+/* =========================
+   DATE NAVIGATION
+========================= */
+
+.date-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0 18px;
+}
+
+.round-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: white;
+    font-size: 25px;
+    color: #111;
+}
+
+.date-center {
+    text-align: center;
+}
+
+.date-center strong {
+    display: block;
+    font-size: 19px;
+}
+
+.date-center span {
+    display: block;
+    margin-top: 3px;
+    color: var(--secondary);
+    font-size: 13px;
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+.progress-card {
+    background: white;
+    border-radius: 21px;
+    padding: 19px;
+    margin-bottom: 25px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-label {
+    color: var(--secondary);
+    font-size: 13px;
+    display: block;
+}
+
+#progressText {
+    font-size: 28px;
+    display: block;
+    margin-top: 2px;
+}
+
+.progress {
+    width: 100%;
+    height: 9px;
+    background: #e8e8e8;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 14px;
+}
+
+#progressBar {
+    width: 0%;
+    height: 100%;
+    background: #111;
+    border-radius: 20px;
+    transition: width .3s ease;
+}
+
+#completedText {
+    margin: 10px 0 0;
+    color: var(--secondary);
+    font-size: 13px;
+}
+
+
+/* =========================
+   SECTION TITLE
+========================= */
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+#taskCount {
+    color: var(--secondary);
+    font-size: 13px;
+}
+
+
+/* =========================
+   TASKS
+========================= */
+
+.task {
+    background: white;
+    border-radius: 17px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin-bottom: 9px;
+    transition: .2s;
+}
+
+.task.done {
+    opacity: .5;
+}
+
+.task input {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    accent-color: #111;
+}
+
+.task-content {
+    flex: 1;
+}
+
+.task-time {
+    color: #888;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+.task-title {
+    font-size: 16px;
+    line-height: 1.3;
+}
+
+
+/* =========================
+   PLAN
+========================= */
+
+.intro-card {
+    background: #111;
+    color: white;
+    border-radius: 23px;
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+    margin-bottom: 18px;
+}
+
+.intro-icon {
+    font-size: 32px;
+}
+
+.intro-card h2 {
+    margin: 0 0 6px;
+    font-size: 21px;
+}
+
+.intro-card p {
+    margin: 0;
+    color: #c8c8c8;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.plan-block {
+    background: white;
+    border-radius: 21px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.plan-heading {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 16px;
+}
+
+.plan-heading span {
+    font-size: 23px;
+}
+
+.plan-heading h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+
+/* RULES */
+
+.rules {
+    display: flex;
+    flex-direction: column;
+}
+
+.rule {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.rule:last-child {
+    border-bottom: none;
+}
+
+.rule strong {
+    font-size: 14px;
+}
+
+.rule span {
+    text-align: right;
+    color: var(--secondary);
+    font-size: 13px;
+}
+
+
+/* FULL DAYS */
+
+.day-plan {
+    background: white;
+    border-radius: 21px;
+    margin-bottom: 14px;
+    overflow: hidden;
+}
+
+.day-plan-header {
+    padding: 18px;
+    border-bottom: 1px solid var(--line);
+}
+
+.day-plan-header h2 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.day-plan-header p {
+    margin: 5px 0 0;
+    color: var(--secondary);
+    font-size: 13px;
+}
+
+.plan-period {
+    padding: 10px 18px;
+    background: #f7f7f7;
+    color: #666;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+}
+
+.plan-item {
+    display: flex;
+    gap: 13px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--line);
+}
+
+.plan-item:last-child {
+    border-bottom: none;
+}
+
+.plan-item-time {
+    width: 88px;
+    flex-shrink: 0;
+    color: #777;
+    font-size: 12px;
+}
+
+.plan-item-title {
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+
+/* SYSTEM */
+
+.system-card {
+    background: #f6f6f6;
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+.system-card strong {
+    font-size: 13px;
+}
+
+.system-card p {
+    margin: 8px 0 0;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.important-card {
+    background: #111;
+    color: white;
+    border-radius: 17px;
+    padding: 17px;
+    margin-top: 14px;
+}
+
+.important-card strong {
+    font-size: 15px;
+}
+
+.important-card p {
+    margin: 8px 0 0;
+    color: #ddd;
+    line-height: 1.5;
+    font-size: 13px;
+}
+
+
+/* =========================
+   CALENDAR
+========================= */
+
+.calendar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.calendar-top h2 {
+    margin: 4px 0 0;
+    font-size: 27px;
+}
+
+.calendar-card {
+    background: white;
+    border-radius: 22px;
+    padding: 17px;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+}
+
+.calendar-header strong {
+    font-size: 17px;
+}
+
+.weekdays,
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.weekdays {
+    margin-bottom: 7px;
+    text-align: center;
+    color: #999;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.day {
+    min-height: 45px;
+    border-radius: 11px;
+    background: #f7f7f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-size: 13px;
+}
+
+.day.empty {
+    background: transparent;
+}
+
+.day.today {
+    outline: 2px solid #111;
+}
+
+.day.selected {
+    background: #111;
+    color: white;
+}
+
+.dot {
+    position: absolute;
+    bottom: 5px;
+    width: 5px;
+    height: 5px;
+    background: #777;
+    border-radius: 50%;
+}
+
+.full-dot {
+    position: absolute;
+    bottom: 4px;
+    width: 6px;
+    height: 6px;
+    background: #111;
+    border-radius: 50%;
+}
+
+.day.selected .dot,
+.day.selected .full-dot {
+    background: white;
+}
+
+.legend {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+    color: #777;
+    font-size: 11px;
+}
+
+.legend div {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.legend-dot,
+.legend-full {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #777;
+}
+
+.legend-full {
+    background: #111;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .app {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .tab {
+        font-size: 12px;
+    }
+
+    .plan-item-time {
+        width: 76px;
+        font-size: 11px;
+    }
+
+    .plan-item-title {
+        font-size: 13px;
+    }
+
+    .rule {
+        flex-direction: column;
+        gap: 4px;
+    }
+
+    .rule span {
+        text-align: left;
+    }
+
+}
